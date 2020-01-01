@@ -88,14 +88,14 @@
 
 						<div class="tab_box" v-show="gameCurrent=='token'">
 							<!--token start-->
-							<div class="ratio">{{langItem.game.ratio}} <span>1 ETH={{gameData.ethRatio}} SDF</span></div>
+							<div class="ratio">{{langItem.game.ratio}} <span>1 ETH={{gameData.ethRatio}} SDFT</span></div>
 							<div class="form_box">
 								<div class="input_box"><input type="number" placeholder="1" v-model.number="ethNumber" /></div>
 								<span>ETH</span>
-								<div class="count">{{langItem.game.get_tickets}}：<em>{{getToken}}</em> SDF</div>
+								<div class="count">{{langItem.game.get_tickets}}：<em>{{getToken}}</em> SDFT</div>
 								<div class="balance">{{langItem.com.balance}}<br/>
 									<em>ETH：{{ethBalance | numFilter}}</em> <br/>
-									<em>SDF：{{tokenBalance | numFilter}}</em> 
+									<em>SDFT：{{tokenBalance | numFilter}}</em> 
 								</div>
 							</div>
 
@@ -118,8 +118,8 @@
 							<div class="form_box">
 								<div class="input_box"><input type="number" v-model.numbe="joinNumber" /></div>
 								<span>ETH</span>
-								<div class="count">{{langItem.game.need_tickets}}：<em>{{joinToken}}</em> SDF</div>
-								<div class="balance">{{langItem.com.balance}}：<em>{{tokenBalance | numFilter}}</em> SDF</div>
+								<div class="count">{{langItem.game.need_tickets}}：<em>{{joinToken}}</em> SDFT</div>
+								<div class="balance">{{langItem.com.balance}}：<em>{{tokenBalance | numFilter}}</em> SDFT</div>
 							</div>
 
 							<div class="sub_btn"><button @click="handleGame">{{langItem.game.send}} ETH</button></div>
@@ -163,8 +163,16 @@
 			<div class="lottery block_common">
 				<!--lottery start-->
 				<div class="container">
-					<h3 class="common_title lottery_title"><span>{{langItem.lottery.title}}</span></h3>
-					<div class="common_intro">{{langItem.lottery.intro}}</div>
+					<h3 class="common_title lottery_title">
+						<span>{{langItem.lottery.title}}</span>
+					</h3>
+					<div class="common_intro">
+						{{langItem.lottery.per}}
+						{{lotteryData.lotteryRatio}}
+						{{langItem.lottery.intro}}
+						{{lotteryCount}}
+						{{langItem.lottery.intro2}}
+					</div>
 
 					<div class="lottery_item">
 						<div class="lottery_times">{{langItem.com.the}}{{lotteryData.currentTimes}}{{langItem.com.period}} {{langItem.lottery.wait}}</div>
@@ -190,8 +198,8 @@
 								<div class="form_box">
 									<div class="input_box"><input type="number" placeholder="1" v-model="lotteryNumber"/></div>
 									<span>{{langItem.lottery.lotteryCode}}</span>
-									<div class="count">{{langItem.game.need_tickets}}：<em>{{lotteryToken}}</em> SDF</div>
-									<div class="balance">{{langItem.com.balance}}：<em>{{tokenBalance | numFilter}}</em> SDF</div>
+									<div class="count">{{langItem.game.need_tickets}}：<em>{{lotteryToken}}</em> SDFT</div>
+									<div class="balance">{{langItem.com.balance}}：<em>{{tokenBalance | numFilter}}</em> SDFT</div>
 								</div>
 
 								<div class="sub_btn"><button @click="handleLottery">{{langItem.lottery.exchange}}</button></div>
@@ -216,7 +224,7 @@
 											<span v-if="lotteryEnd==0">{{langItem.lottery.noEnd}}</span>
 											<span v-else>
 												<em  v-for="(val,i) in value.code">LT{{val}}，</em>
-												<em>{{langItem.lottery.bonus}}：{{value.bonus | numFilter}} SDF</em>
+												<em>{{langItem.lottery.bonus}}：{{value.bonus | numFilter}} SDFT</em>
 											</span>
 										</p>
 									</div>
@@ -225,12 +233,12 @@
 										<h3>{{langItem.lottery.myCode}}：
 											<span v-for="(val,i) in lotteryData.records.myData.code">LT{{val}}；</span>
 										</h3>
-										<p>{{langItem.lottery.myBonus}}：<span class="purple">{{lotteryData.records.myData.myBonus | numFilter}} SDF</span></p>
+										<p>{{langItem.lottery.myBonus}}：<span class="purple">{{lotteryData.records.myData.myBonus | numFilter}} SDFT</span></p>
 										<p v-if="lotteryData.records.myData.code.length==0">{{langItem.income.luck_recommend}}：
-											<span class="purple">0.0000 SDF</span>
+											<span class="purple">0.0000 SDFT</span>
 										</p>
 										<p v-else>{{langItem.income.luck_recommend}}：
-											<span class="purple">{{lotteryData.records.myData.luck_recommend | numFilter}} SDF</span>
+											<span class="purple">{{lotteryData.records.myData.luck_recommend | numFilter}} SDFT</span>
 										</p>
 									</div>
 									
@@ -244,7 +252,8 @@
 								<!--lotter rule start-->
 								<div class="rules">
 									<h3 class="rules_title">{{langItem.game.rule_title}}</h3>
-									<div class="rule_text">{{langItem.lottery.rule}}</div>
+									<div class="rule_text">{{langItem.lottery.per}}{{lotteryData.lotteryRatio}}{{langItem.lottery.intro}}{{lotteryCount}}{{langItem.lottery.intro2}}{{langItem.lottery.rule}}
+									</div>
 								</div>
 							</div>
 							<!--lotter rule end-->
@@ -309,7 +318,7 @@
 									<div class="common_item">
 										<h4 class="fbold">{{langItem.income.unsettled_income}}</h4>
 										<p>ETH：{{income.unsettled.eth | numFilter}}</p>
-										<p>SDF：{{income.unsettled.sdf | numFilter}}</p>
+										<p>SDFT：{{income.unsettled.sdf | numFilter}}</p>
 										<p>
 											{{langItem.income.countDown}}：
 											<span v-if="investTime==0">{{langItem.com.noInvest}}</span>
@@ -320,8 +329,8 @@
 									<div class="common_item">
 										<h4 class="fbold">{{langItem.income.gameReward_income}}</h4>
 										<p>ETH：{{income.gameReward.eth | numFilter}}</p>
-										<p>SDF：{{income.gameReward.sdf | numFilter}}</p>
-										<p>{{langItem.income.fee}}：{{getFee}} SDF</p>
+										<p>SDFT：{{income.gameReward.sdf | numFilter}}</p>
+										<p>{{langItem.income.fee}}：{{getFee}} SDFT</p>
 										<p class="btns" v-if="income.gameReward.eth>0 || income.gameReward.sdf >0" @click="gameReward">
 											<span>{{langItem.income.gameReward}}</span>
 										</p>
@@ -336,12 +345,13 @@
 								<li><span>{{income.list.pool | numFilter}} ETH</span>{{langItem.income.prize_pool}}</li>
 								<li><span>{{income.list.statics | numFilter}} ETH</span>{{langItem.income.static_income}}</li>
 								<li><span>{{income.list.dynamic.total | numFilter}} ETH</span>{{langItem.income.dynamic_income}}</li>
-								<li><span>{{income.list.luckDraw | numFilter}} SDF</span>{{langItem.income.luck_draw}}</li>
-								<li><span>{{income.list.luckRecommend | numFilter}} SDF</span>{{langItem.income.luck_recommend}}</li>
-								<li><span>{{income.list.settled.eth | numFilter}} ETH，{{income.list.settled.sdf | numFilter}}SDF</span>{{langItem.income.total_settled}}</li>
-								<li><span>{{income.list.limit | numFilter}}ETH</span>{{langItem.income.limit_income}}</li>
-								<li><span>{{otherData.list.token | numFilter}} SDF</span>{{langItem.statistics.ticket_sales}}</li>
-								<li><span>{{otherData.list.burnDown | numFilter}} SDF</span>{{langItem.statistics.burn_down}}</li>
+								<li><span>{{income.list.luckDraw | numFilter}} SDFT</span>{{langItem.income.luck_draw}}</li>
+								<li><span>{{income.list.luckRecommend | numFilter}} SDFT</span>{{langItem.income.luck_recommend}}</li>
+								<li><span>{{income.list.settled.eth | numFilter}} ETH，{{income.list.settled.sdf | numFilter}} SDFT</span>{{langItem.income.total_settled}}</li>
+								<li><span>{{income.list.limit | numFilter}} ETH</span>{{langItem.income.limit_income}}</li>
+								<li><span>{{otherData.list.token | numFilter}} SDFT</span>{{langItem.statistics.ticket_sales}}</li>
+								<li><span>{{otherData.list.burnDown | numFilter}} SDFT</span>{{langItem.statistics.burn_down}}</li>
+								<li><span>{{otherData.list.nextSeason | numFilter}} SDFT</span>{{langItem.statistics.next_season}}</li>
 								
 								<li><span>{{otherData.list.v4Node}}</span>{{langItem.statistics.v4_node}}</li>
 							</ul>
@@ -382,11 +392,13 @@
 			<pop-box v-show="seasonRules"   :title="langItem.ranking.buy_title"   :message="langItem.ranking.season_rule"></pop-box>
 			<pop-box v-show="countError"    :title="langItem.com.tip" :message="langItem.com.count_error"></pop-box>
 			<pop-box v-show="sendError"     :title="langItem.com.tip" :message="langItem.com.send_error"></pop-box>
-			<pop-box v-show="lotteryError"  :title="langItem.com.tip" :message="langItem.com.lotteryError"></pop-box>
+			<!--<pop-box v-show="lotteryError"  :title="langItem.com.tip" :message="langItem.com.lotteryError"></pop-box>-->
 			<pop-box v-show="copySuccess"   :title="langItem.com.tip" :message="langItem.com.copySuccess"></pop-box>
 			<pop-box v-show="balanceError"  :title="langItem.com.tip" :message="langItem.com.balanceError"></pop-box>
 			<pop-box v-show="canPlay"       :title="langItem.com.tip" :message="langItem.game.canPlay"></pop-box>
 			<pop-box v-show="sdfBalanceError"  :title="langItem.com.tip" :message="langItem.com.sdfBalanceError"></pop-box>
+			
+			<pop-lotto v-show="lotteryError"  :title="langItem.com.tip" :message="langItem.com.lotteryError" :codes="lotteryCount"></pop-lotto>
 
 		</div>
 		<script type="text/javascript " src="js/app.js "></script>

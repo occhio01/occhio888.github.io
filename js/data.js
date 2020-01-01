@@ -23,6 +23,8 @@ var data = {
 	ethNumber: 1,
 	joinNumber: 10,
 	lotteryNumber: 1,
+	lotteryCount:5,
+	sale_amount_v1:5232308643900000,
 	playerID:"",
 	winnerID:0,
 	langList: {
@@ -54,7 +56,7 @@ var data = {
 	lotteryData: {
 		currentTimes: 1,
 		collected: 0,
-		lotteryRatio: 100,
+		lotteryRatio: "--",
 		records: {
 			term: 0,
 			loginfor:0,
@@ -130,10 +132,12 @@ var data = {
 		group: {
 			nodes: 0,
 			largeArea: 0,
+			secondArea:0,
 			smallArea: 0
 		},
 		list: {
 			token: 0,
+			nextSeason:0,
 			burnDown: 0,
 			v4Node: 0
 		}

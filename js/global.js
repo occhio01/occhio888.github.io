@@ -12,6 +12,20 @@
  	    </div>'
  });
 
+ Vue.component('pop-lotto', {
+ 	props: ['title', 'message','codes'],
+ 	template: '\
+ 	    <div class="modal">\
+ 	        <div class="modal_dialog">\
+ 	            <div class="modal_content">\
+ 	                <h3 class="modal_title">{{title}}</h3>\
+ 	                <div class="rule_text">{{message}}{{codes}}</div>\
+ 	                <a href="javascript:void(0)" class="modal_close" @click="app.hidePop()">X</a>\
+ 	            </div>\
+ 	        </div>\
+ 	    </div>'
+ });
+ 
  Vue.component('pop-rank', {
  	props: ['title', 'datafrom'],
  	template: '\

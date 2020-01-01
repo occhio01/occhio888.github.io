@@ -382,8 +382,11 @@ var app = new Vue({
 		},
 		handleLottery: function() {
 			var _this = this,
-				amount = parseInt(this.lotteryNumber);
-			if(amount < 1 || amount > 10) {
+				amount = parseInt(this.lotteryNumber),
+				len=_this.lotteryData.records.myData.code.length;
+				len=len+parseInt(_this.lotteryNumber);
+				console.log(len)
+			if(amount < 1 || len > parseInt(_this.lotteryCount)) {
 				_this.lotteryError = true;
 				return false;
 			} else if(this.lotteryToken > this.tokenBalance) {
@@ -395,7 +398,7 @@ var app = new Vue({
 			_this.contracts.DarkToken.deployed().then(function(instance) {
 				contract = instance;
 				console.log(_this.superiorID + " superiorID");
-				return contract.lotteryPlay.sendTransaction(amount * 100, _this.superiorID, {
+				return contract.lotteryPlay.sendTransaction(amount * _this.lotteryData.lotteryRatio, _this.superiorID, {
 					from: account
 				});
 			}).then(function(result) {
@@ -556,11 +559,18 @@ var app = new Vue({
 				_this.lotteryData.collected = parseInt(result[1]);
 
 				_this.income.unsettled.sdf = result[2] / 10 ** 8;
-				_this.otherData.list.token = result[4] / 10 ** 8;
+				_this.otherData.list.token = (_this.sale_amount_v1 + parseFloat(result[4])) / 10 ** 8;
 				_this.otherData.list.burnDown = result[3] / 10 ** 8;
+				
+				_this.otherData.list.nextSeason = result[7] / 10 ** 8;
 
 				_this.gameData.ethRatio = parseInt(result[5]);
 				_this.rankData.season.term = parseInt(result[6]);
+				
+				_this.lotteryData.lotteryRatio=parseInt(result[8]);
+				
+				_this.lotteryCount=parseInt(result[9]);
+				
 
 				if(update) {
 					_this.lotteryData.records.term = _this.lotteryData.currentTimes;
@@ -596,6 +606,9 @@ var app = new Vue({
 			return parseFloat(this.joinNumber * this.gameData.ethRatio / 10).toFixed(4)
 		},
 		lotteryToken: function() {
+			if(isNaN(this.lotteryData.lotteryRatio)) {
+				return "--"
+			}
 			return parseFloat(this.lotteryNumber * this.lotteryData.lotteryRatio).toFixed(4)
 		},
 		getFee: function() {

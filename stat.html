@@ -110,6 +110,7 @@
 										<h4 class="fbold">{{langItem.statistics.my_team}}</h4>
 										<p>{{langItem.statistics.team_node}}：{{otherData.group.nodes}}</p>
 										<p>{{langItem.statistics.large_area}}：{{otherData.group.largeArea | numFilter}} ETH</p>
+										<p v-if="otherData.group.secondArea>0">{{langItem.statistics.second_area}}：{{otherData.group.secondArea | numFilter}} ETH</p>
 										<p>{{langItem.statistics.small_area}}：{{otherData.group.smallArea | numFilter}} ETH</p>
 									</div>
 								</div>

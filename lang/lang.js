@@ -11,11 +11,11 @@ var lang = {
 			tip: "提示",
 			send_error: "最少投入1個ETH",
 			noData:"暫無數據",
-			lotteryError:"只能輸入1-10之間的正整數",
+			lotteryError:"每期最多換樂透碼數為：",
 			copySuccess:"複製成功",
 			balance:"帳戶餘額",
 			balanceError:"餘額不足",
-			sdfBalanceError:"SDF餘額不足",
+			sdfBalanceError:"SDFT餘額不足",
 			noInvest:"未投資或已出局",	
 			detail:"詳細數據",
 			viewDetail:"點擊查看詳細數據"
@@ -53,10 +53,10 @@ var lang = {
             myAddress:"我的地址",
             myID:"我的ID",
 			rule_intro: '\
-1.）參與遊戲必先用ETH 光遷令牌SDF(未來之星），令牌光遷的金額是參與遊戲金額的1/10。一旦參與遊戲，令牌100%焚毀。\n\
+1.）參與遊戲必先用ETH 光遷令牌SDFT(未來之星），令牌光遷的金額是參與遊戲金額的1/10。一旦參與遊戲，令牌100%焚毀。\n\
 2.）參與遊戲的ETH，將獲得3倍的回報，按參與遊戲的金額及市場變化，區塊結算成每日靜態分紅，分紅比為0.3%～1.8%/天。\n\
 3.）動態有分享獎、星系獎、星榜獎、V4加權獎、令牌分銷獎、光季排名獎、樂透推薦獎、節點獎，各種獎勵拿不停。\n\
-4.）令牌的銷售：光遷發行。令牌（未來之星SDF)採用智慧合約的光遷機制發行，通過光遷發行+焚毀機制+資產對標+通縮原理+多元生態，持續引流吸粉，打造共識，提升價值。\n \
+4.）令牌的銷售：光遷發行。令牌（未來之星SDFT)採用智慧合約的光遷機制發行，通過光遷發行+焚毀機制+資產對標+通縮原理+多元生態，持續引流吸粉，打造共識，提升價值。\n \
 A.創世光遷期（分六階段，每階段最多10天，限額600萬枚）\n\
 第一階段，1:10000；\n\
 第二階段，1:9000; \n\
@@ -64,14 +64,16 @@ A.創世光遷期（分六階段，每階段最多10天，限額600萬枚）\n\
 第四階段，1:7000；\n\
 第五階段，1:6000；\n\
 第六階段，1:5000；\n\
-B.盛世光遷期（分12個光季，每個光季銷量1000萬枚）：\n\
-每銷售20萬枚，價格上漲：1%；\n\
+B.盛世光遷期（分12個光季，每個光季銷量+銷毀量=1000萬枚）：\n\
+每銷售10萬枚，價格上漲：1%；\n\
 每銷毀10萬枚，價格上漲：1%；\n\
-第一次價格上漲基礎為創世光遷期的第六階段的ETH對標價，每發行完1000萬枚，上漲基價指數變為上一次最後階段的價格基礎。'
+第一次價格上漲基礎為創世光遷期的第六階段的ETH對標價，每銷量+銷毀完1000萬枚，上漲基價指數變為上一次最後階段的價格基礎。'
 		},
 		lottery: {
 			title: "大樂透",
-			intro: "每100個SDF換一個樂透碼，每個節點可購N個樂透碼，每集滿1000個樂透碼本期開獎。",
+			per:"每",
+			intro: "個SDFT換一個樂透碼，每個節點可購",
+			intro2: "個樂透碼，每集滿100個樂透碼本期開獎。",
 			wait: "等待開獎",
 			count: "本期已集樂透碼數",
 			join: "我要樂透",
@@ -95,7 +97,7 @@ B.盛世光遷期（分12個光季，每個光季銷量1000萬枚）：\n\
 			myCode:"我的樂透碼",
 			myBonus:"我的樂透獎",
 			rule: "\
-每100個SDF換一個樂透碼，每個節點可購N個樂透碼，每集滿1000個樂透碼，本期開獎。\n\
+\n\
 A.) 獎池的30%開出：\n\
 一等獎：1名，占40% \n\
 二等獎：3名，占30%；\n\
@@ -125,8 +127,8 @@ D.) 本獎池的10%，直接銷毀；"
 			ac_title:"業績",
 			id:"ID",
 			season_rule: "\
-令牌（SDF)盛世發行階段，進行光季TOP排名，每完成1000萬銷量，進行一次光季TOP排名，共有12次光季。 \n\
-* 每個光季SDF令牌銷售收入的 10%將被用於 排名獎勵；使用 ETH 結算。 \n\
+令牌（SDFT)盛世發行階段，進行光季TOP排名，每完成1000萬SDFT(銷量+銷毀)，進行一次光季TOP排名，共有12次光季。 \n\
+* 每個光季SDFT令牌銷售收入的 10%將被用於 排名獎勵；使用 ETH 結算。 \n\
 * 獎勵給排名前 60名（自己購買令牌的數量按100%計算+直推人購買令牌的數量按50%計算）。 \n\
 排名 比例 佔比 \n\
 No.1 18% 18% \n\
@@ -189,10 +191,12 @@ No.51-60 0.5% 5.0%",
 			my_team: "我的星系",
 			team_node: "星系節點",
 			large_area: "大區業績",
+			second_area: "次大區業績",
 			small_area: "小區總業績",
 			statistics: "數據統計",
 			ticket_sales: "令牌銷售總數",
 			burn_down: "令牌焚毀總數",
+			next_season:"下一光季還差",
 			v4_node: "V4節點數量",
 			today_game: "當天遊戲",
 			total_input: "總投入遊戲",
@@ -211,11 +215,11 @@ No.51-60 0.5% 5.0%",
 			tip: "Tips",
 			send_error: "Minimum input of 1 ETH",
 			noData:"No data",
-			lotteryError:"Enter only positive integers between 1 and 10",
+			lotteryError:"The maximum number of codes to change in each period is:",
 			copySuccess:"Successful replication",
 			balance:"Balance",
 			balanceError:"Insufficient balance",
-			sdfBalanceError:"SDF Balance Insufficient",
+			sdfBalanceError:"SDFT Balance Insufficient",
 			noInvest:"Not invested or out of needs",
 			detail:"Details",
 			viewDetail:"Click to view detail"
@@ -254,10 +258,10 @@ No.51-60 0.5% 5.0%",
             myID:"My ID",
 			rule_intro: '\
 Rules for Meeting Future and Token \n\
-1.)Needs ray token SDF( Future star) to join, amount for ray token equals 10% of the game amount. Ray token destroyed once participated.\n\
+1.)Needs ray token SDFT( Future star) to join, amount for ray token equals 10% of the game amount. Ray token destroyed once participated.\n\
 2.)ETH participated the game will get triple in return. According to amount you participated in game and market changes, block will be settled as daily static dividend, and the dividend proportion is 0.3%～1.8%/day. \n\
 3.)Dynamic prize includes: share prize, galaxy prize, galaxy rank prize, V4 weighting prize, token distribution prize, light rank prize, lotto recommended prize, node prize, all kinds of prize waiting for you.\n\
-4.)Token sell: ray distribution. Token(Future star SDF) adopts intelligent contract to distribute, though ray distribution+destroyed system+sset comparison+deflation principle+ diversity environment, which keep attracting people, creating consensus, and increasing value.\n\
+4.)Token sell: ray distribution. Token(Future star SDFT) adopts intelligent contract to distribute, though ray distribution+destroyed system+sset comparison+deflation principle+ diversity environment, which keep attracting people, creating consensus, and increasing value.\n\
 A.Creation Ray period(There are six stages with a maximum of 10 days in each stage and a limit of 6 million)\n\
 The first stage, 1:10000 \n\
 The second stage, 1:9000 \n\
@@ -265,14 +269,16 @@ The third stage, 1:8000 \n\
 The fourth stage, 1:7000 \n\
 The fifths stage, 1:6000 \n\
 The sixth stage, 1:5000 \n\
-B.Glory Ray period(In 12 light seasons, sales of 10 million units per light season) \n\
-Price increase by 1% per 200K sold \n\
+B.Glory Ray period(Divided into 12 light seasons, each light season sales + destruction = 10 million) \n\
+Price increase by 1% per 100K sold \n\
 Price increase by 1% per 100K sold \n\
 The first time price increase was based on the ETH pair price of the sixth stage of the creation ray stage. After each 10 million units were distributed, increase of the base price index was changed to the price base of the last stage.'
 		},
 		lottery: {
 			title: "Lotto",
-			intro: "Every 100 SDF change 1 lotto code, per node can buy N lotto code. Collect 1000 lotto code to announce Lottery.",
+			per:"Every",
+			intro: " SDFT change 1 lotto code, per node can buy ",
+			intro2: " lotto code. Collect 100 lotto code to announce Lottery.",
 			wait: "Waiting for the prize",
 			count: "Collected lotto code",
 			join: "Join Now",
@@ -296,8 +302,7 @@ The first time price increase was based on the ETH pair price of the sixth stage
 			myCode:"My lottery code",
 			myBonus:"My lottery prize",
 			rule: "\
-Lotto Rules \n\
-Every 100 SDF change 1 lotto code, per node can buy N lotto code. Collect 1000 lotto code get lottery result.\n\
+\n\
 A.)	30% of the Prize Pool to draw \n\
 First prize: 1, take up 1/3 \n\
 Second prize: 1, take up 1/3 \n\
@@ -327,7 +332,7 @@ D.)	10% of the Prize Pool, directly destroyed."
 			ac_title:"Achievement",
 			id:"ID",
 			season_rule: "\
-Light rank will be conducted during token(SDF) glory period. Per 10 million sold, one light rank will be held, 12 times in total. 10% of the sales revenue of SDF token every time will be granted as rank reward by ETH. \n\
+Light rank will be conducted during token(SDFT) glory period. Per 10 million sold and burn, one light rank will be held, 12 times in total. 10% of the sales revenue of SDFT token every time will be granted as rank reward by ETH. \n\
 *Rewards for top 60(Token count as: 100% for self bought+50% of directly recommended bought). \n\
 Ranking ratio Proportion \n\
 No.1 18% 18% \n\
@@ -390,10 +395,12 @@ Fifth place: 10%;"
 			my_team: "My Galaxy",
 			team_node: "Galaxy Node",
 			large_area: "Large area",
+			second_area: "Second area",
 			small_area: "small area",
 			statistics: "Data Statistics",
 			ticket_sales: "Total token sold",
 			burn_down: "Total token destroyed",
+			next_season:"Distance next season",
 			v4_node: "V4 Node quantity",
 			today_game: "Today game",
 			total_input: "Total invested",
@@ -412,11 +419,11 @@ Fifth place: 10%;"
 			tip: "ヒント",
 			send_error: "最低1 ETHを投入します",
 			noData:"データがありません",
-			lotteryError:"正の整数は1-10までしか入力できません",
+			lotteryError:"毎号の最大番号はロトコードの数です:",
 			copySuccess:"コピー成功",
 			balance:"残額",
 			balanceError:"残高が足りない",
-			sdfBalanceError:"SDF残高不足",
+			sdfBalanceError:"SDFT残高不足",
 			noInvest:"未投資またはアウト",
 			detail:"詳細",
 			viewDetail:"詳細を見る"
@@ -457,7 +464,7 @@ Fifth place: 10%;"
 1）ゲーム参加する前にまずはETHトーケン（未来のスター）を使い、トーケンの金額はゲーム参加金額の1/10です。\n\
 2．）ゲーム参加のETHには3倍のお返しがつきます。ゲーム参加の金額と市場変化に応じて、ブロック精算は毎日の静態配当で、配当比率一日で0.3%～1.8%となります。\n\
 3．）動態には共有賞、スター系賞、スターランキング賞、V4重みつき賞、トーケン販売賞、光シーズンランキング賞、ロット推薦賞、ノード賞があり、山ほどの賞をゲットしましょう。\n\
-4．トーケンの販売:光ファイバー発行。トーケン（未来のスターSDF）はスマート契約の光ファイバーメカニズムで発行するもので、光ファイバー発行＋廃棄メカニズム＋資産ベンチマーキング＋デフレーション原理＋多元生態を通じて、引き続き集客し、共存まで達して、価値向上を図ります。\n\
+4．トーケンの販売:光ファイバー発行。トーケン（未来のスターSDFT）はスマート契約の光ファイバーメカニズムで発行するもので、光ファイバー発行＋廃棄メカニズム＋資産ベンチマーキング＋デフレーション原理＋多元生態を通じて、引き続き集客し、共存まで達して、価値向上を図ります。\n\
 A.創生光ファイバー時期（六段階に分けて、段階ごとに最大10日間、限度額は600万枚です）\n\
 第一段階、1:10000；\n\
 第二段階、1:9000；\n\
@@ -465,14 +472,16 @@ A.創生光ファイバー時期（六段階に分けて、段階ごとに最大
 第四段階、1:7000；\n\
 第五段階、1:6000；\n\
 第六段階、1:5000；\n\
-B．繁栄光ファイバー時期（12シーズンに分けて、シーズンごとに1000万枚を販売）:\n\
-20万枚を販売するごとに、1%値上げになります。\n\
+B．繁栄光ファイバー時期（シーズンは12個で、シーズンごとの販売量は+廃棄量=1000万枚です）:\n\
+10万枚を販売するごとに、1%値上げになります。\n\
 10万枚廃棄するごとに、1%値上げになります。\n\
 第一回の値上げのベースは創生光ファイバー時期の第六段階のETHベンチマーキング価格で、1000万枚の販売が終わると、値上げ基礎価格指数は前回最後段階の基礎価格になります。"
 		},
 		lottery: {
 			title: "スーパーロット",
-			intro: "100個のSDFで一個のロットコードを交換できて、ノードごとにN個のロットコードを購入できて、1000個のロットコードを集めば結果発表になります。",
+			per:"",
+			intro: "個のSDFTで一個のロットコードを交換できて、ノードごとに",
+			intro2: "個のロットコードを購入できて、100個のロットコードを集めば結果発表になります。",
 			wait: "結果発表前",
 			count: "今期で集めたロットコード数",
 			join: "ロットがほしい",
@@ -496,8 +505,7 @@ B．繁栄光ファイバー時期（12シーズンに分けて、シーズン�
 			myCode:"私の抽選番号",
 			myBonus:"私のロト賞",
 			rule: "\
-100個のSDFで一個のロットコードを交換できて、ノードごとにN個のロットコードを購入できて、1000個のロットコードを集めば結果発表になります。\n\
-A.）賞金プールの30%は抽選に当たります \n\
+\n\
 一等賞:1名、1/3 \n\
 二等賞:3名、1/3 \n\
 三等賞:6名、1/3 \n\
@@ -526,7 +534,7 @@ D.）当賞金プールの10%は直接廃棄します。"
 			ac_title:"業績",
 			id:"ID",
 			season_rule: "\
-トーケン（SDF）繁栄発行段階、光シーズントップランキングに入り、1000万の販売が達成すると、光シーズントップランキングに入り、光シーズンは計12回となります。*光シーズンごとSDFトーケンの売り上げの10%はランキングボーナスに回り、ETHで精算します。\n\
+トークン（SDFT）の盛世発売段階で、光季トップランキングを行い、1000万枚（販売量＋廃棄）を達成するごとに、光季トップランキングを行い、全12回のシーズンを達成した。*光シーズンごとSDFTトーケンの売り上げの10%はランキングボーナスに回り、ETHで精算します。\n\
 ランキング60位までボーナスを配ります（自分購入のトーケンの数量は100%で計算+直接推薦人のトーケン購入は50%で計算）\n\
 ランキング比例 \n\
 No.1 18%18% \n\
@@ -589,10 +597,12 @@ No.51-60 0.5% 5.0%",
 			my_team: "私のチーム",
 			team_node: "スター系ノード",
 			large_area: "大地区の業績",
+			second_area: "次の大区の業績",
 			small_area: "団地の総業績",
 			statistics: "データ集計",
 			ticket_sales: "トーケンの販売総数",
 			burn_down: "トーケンの廃棄総数",
+			next_season:"下一光からの季節",
 			v4_node: "V4ノードの数量",
 			today_game: "当日の遊び",
 			total_input: "すでに投資された",
@@ -611,11 +621,11 @@ No.51-60 0.5% 5.0%",
 			tip: "힌트",
 			send_error: "최소 1ETH 투입",
 			noData:"일시 데이터 없음",
-			lotteryError:"1 -10 사이의 정정수를 입력해야 합니다",
+			lotteryError:"매기 최대 로테리아를 바꾸기:",
 			copySuccess:"복사 성공",
 			balance:"잔액",
 			balanceError:"잔액이 부족하다",
-			sdfBalanceError:"SDF 잔액이 부족하다",
+			sdfBalanceError:"SDFT 잔액이 부족하다",
 			noInvest:"미투자 또는 아웃",
 			detail:"상세하다",
 			viewDetail:"상세한 데이터 보기"
@@ -654,10 +664,10 @@ No.51-60 0.5% 5.0%",
             myAddress:"나의 주소",
             myID:"내 ID",
 			rule_intro:"\
-1.) 게임 참여는 무조건 ETH 광천영패 SDF(미래의 별)를 먼저 사용하며 영패광천 금액은 게임 참여 금액의 1/10입니다.게임에 참여하면 영패는 100% 소각됩니다.\n\
+1.) 게임 참여는 무조건 ETH 광천영패 SDFT(미래의 별)를 먼저 사용하며 영패광천 금액은 게임 참여 금액의 1/10입니다.게임에 참여하면 영패는 100% 소각됩니다.\n\
 2.) 게임에 참여하는 ETH는 3배의 보상을 받고 게임 참여 금액 및 시장 변화에 따라 블록을 일당 정태 배당으로 결제하며 배당비는 0.3%1.8%입니다.\n\
 3.)동태적으로는 공유상, 별과상, 성계상, V4가중상, 영패판매상, 광시즌 랭킹상, 로또 추천상, 쿼터상, 각종 인센티브가 끊임없이 준비되어 있습니다.\n\
-4.)영패의 판매 : 광천발행. 영패(미래의 별 SDF)는 스마트 계약의 광천 메커니즘을 사용하여 발행되며, 광천 발행+분소 메커니즘+자산대칭+통축 원리+다양한 생태계를 통해 지속적으로 흡수되고, 공감대를 형성하며 가치를 높입니다.\n\
+4.)영패의 판매 : 광천발행. 영패(미래의 별 SDFT)는 스마트 계약의 광천 메커니즘을 사용하여 발행되며, 광천 발행+분소 메커니즘+자산대칭+통축 원리+다양한 생태계를 통해 지속적으로 흡수되고, 공감대를 형성하며 가치를 높입니다.\n\
 A. 창세광천기(6단계, 1단계 최대 10일, 한도액 600만 개)\n\
 제1단계, 1:10000;\n\
 제2단계, 1:9000;\n\
@@ -665,15 +675,17 @@ A. 창세광천기(6단계, 1단계 최대 10일, 한도액 600만 개)\n\
 제4단계, 1:7000;\n\
 제5단계, 1:6000;\n\
 제6단계, 1:5000;\n\
-B. 성세광천기(12시즌, 시즌마다 1000만 개 판매량):\n\
-판매당 20만개, 가격 상승:1% \n\
+B. 성세광천기(광기 12개, 광기 판매량 + 소각량 = 1000만 개):\n\
+판매당 10만개, 가격 상승:1% \n\
 10만 개 소각당 가격 상승:1% \n\
 제1차 가격 상승의 기초는 창세광천기 제 6단계의 ETH 대표값이다.\n\
 매 1000만매씩 발행할 때마다 상승 기준 가격지수는 이전 마지막 단계의 가격 기반이 됩니다."			
 		},
 		lottery: {
 			title: "그랜드로또",
-			intro: "SDF 100개당 로또 코드를 바꾸면, 각 쿼터는 N개의 로또 코드로 충분하며, 회당 1000개의 로또 코드가 이번 호에 개상됩니다.",
+			per:"",
+			intro: " SDFT 개당 로또 코드를 바꾸면, 각 쿼터는 ",
+			intro2: "개의 로또 코드로 충분하며, 회당 100개의 로또 코드가 이번 호에 개상됩니다.",
 			wait: "추첨대기",
 			count: "로또 복권 코드",
 			join: "로또 구매하기",
@@ -697,7 +709,7 @@ B. 성세광천기(12시즌, 시즌마다 1000만 개 판매량):\n\
 			myCode:"내 추첨 코드",
 			myBonus:"나의 상금",
 			rule: "\
-매 100개 SDF마다 로또 코드를 교체합니다. 매쿼터마다 N개의 로또 코드를 구입할 수 있으며, 매회 1,000개의 로또 코드가 채워지면 이번 호의 당첨자를 추첨합니다.\n\
+\n\
 그랜드 로또 규칙:\n\
 A.)상조의 30% 부여:\n\
 1등상: 1명, 1/3차지；\n\
@@ -728,8 +740,8 @@ D.) 본 상조의 10%, 직접 소각."
 			ac_title:"업적",
 			id:"ID",
 			season_rule: "\
-영패(SDF) 성세발행 단계에 광시즌 TOP 순위를 진행해 1000만대 판매를 완수할 때마다 광시즌 TOP 랭킹을 1회 실시하는 등 총 12회 광시즌을 실시하고 있습니다.\n\
-* 광시즌별 SDF 영패 판매 수입의 10%가 순위 인센티브로 사용됩니다. ETH를 사용하여 결제됩니다.\n\
+포맷(SDFT) 성세 발행 단계는 광기 TOP 순위를 진행해 1000만(판매량+소각), 광계 TOP 순위는 총 20차례나 된다.\n\
+* 광시즌별 SDFT 영패 판매 수입의 10%가 순위 인센티브로 사용됩니다. ETH를 사용하여 결제됩니다.\n\
 * 위부터 60위에게 인센티브 부여. (자체 구매 영패의 수량은 100%로 계산+직접추천인 구매영장 수량 50%로 계산). \n\
 순위 비율 점유비율 \n\
 No.1 18% 18% \n\
@@ -792,10 +804,12 @@ No.51-60 0.5% 5.0%",
 			my_team: "나의 성계",
 			team_node: "스타 쿼터",
 			large_area: "대 구역 실적",
+			second_area: "제2대 구 업적",
 			small_area: "소 구역 실적",
 			statistics: "데이터 통계",
 			ticket_sales: "영패 판매 총 수량",
 			burn_down: "영패 분소 총 수량",
+			next_season:"다음 계절",
 			v4_node: "V4쿼터 수량",
 			today_game: "당일 게임",
 			total_input: "총 자금은 이미 투",
@@ -814,11 +828,11 @@ No.51-60 0.5% 5.0%",
 			tip: "подсказка",
 			send_error: "минимальная загрузка 1ETH",
 			noData:"Пока нет данных",
-			lotteryError:"можно ввести только положительное число от 1 до 10",
+			lotteryError:"максимальное число перемешиваемых кодов в каждом номере:",
 			copySuccess:"Копировать успешно",
 			balance:"сальдо",
 			balanceError:"дефицит",	
-			sdfBalanceError:"недостаточный остаток SDF",
+			sdfBalanceError:"недостаточный остаток SDFT",
 			noInvest:"Не инвестировано или не было",
 			detail:"подробно",
 			viewDetail:"просмотреть данные"
@@ -856,10 +870,10 @@ No.51-60 0.5% 5.0%",
             myAddress:"мой адрес",
             myID:"мой ID",
 			rule_intro:"\
-1.)Для участия в игре вы должны сначала использовать ETH для перемещения токена SDF (звезды будущего). Количество ходов токена составляет 1/10 от суммы участвующей игры. После участия в игре токен сгорает на 100%.\n\
+1.)Для участия в игре вы должны сначала использовать ETH для перемещения токена SDFT (звезды будущего). Количество ходов токена составляет 1/10 от суммы участвующей игры. После участия в игре токен сгорает на 100%.\n\
 2.)ETH, участвующий в игре, получит возврат в 3 раза. В зависимости от количества участвующих игр и рыночных изменений, блок будет рассчитываться как ежедневный статический дивиденд, а коэффициент дивидендов будет составлять от 0.3% до 1.8% в день.\n\
 3.)Доступны награды за динамическое совместное использование, награды за галактику, награды в списке звезд, награды за взвешенные версии V4, награды за распределение токенов, награды за ранжирование в светлый сезон, награды за рекомендации лотереи, награды за узлы и различные награды.\n\
-4)Продажа токенов: выпуск гуанцянь. Токен (Будущая звезда SDF) выпускается с помощью оптического механизма сжатия смарт-контракта: через механизм оптической миграции и выдачи + сравнительный анализ активов + принцип дефляции + мультиэкология, постоянный дренаж и поглощение порошка, достижение консенсуса и повышение ценности.\n\
+4)Продажа токенов: выпуск гуанцянь. Токен (Будущая звезда SDFT) выпускается с помощью оптического механизма сжатия смарт-контракта: через механизм оптической миграции и выдачи + сравнительный анализ активов + принцип дефляции + мультиэкология, постоянный дренаж и поглощение порошка, достижение консенсуса и повышение ценности.\n\
 А.Период создания (шесть этапов, максимум 10 дней на этап, лимит 6 млн)\n\
 Первый этап, 1: 10000;\n\
 Второй этап, 1: 9000;\n\
@@ -867,14 +881,16 @@ No.51-60 0.5% 5.0%",
 Четвертая стадия, 1: 7000;\n\
 Пятая стадия, 1: 6000;\n\
 Шестой этап, 1: 5000;\n\
-B.Период Шэншигуанцянь (12 сезонов, каждый сезон продаж 10 миллионов) :\n\
-За каждые 200000 проданных товаров цена увеличивается: на 1%;\n\
+B.Период Шэншигуанцянь (в 12 световых сезонах продажи + уничтожение = 10 млн штук) :\n\
+За каждые 100000 проданных товаров цена увеличивается: на 1%;\n\
 За каждые 100000 уничтоженных предметов цена увеличивается: на 1%;\n\
 Первое повышение цены было основано на цене пары ETH шестой стадии периода Шэншигуанцянь.После каждого выпуска в 1000 десять тысяч штук, индекс растущих базовых цен становился базой цен последней заключительной стадии."
 		},
 		lottery: {
 			title: "Большое лото",
-			intro: "Для каждых 100 SDF используется код лотереи, и каждый узел может иметь N кодов лотереи, и когда лотерея превышает 1000, лотерея разыгрывается.",
+			per:"Для каждых",
+			intro: " SDFT используется код лотереи, и каждый узел может иметь ",
+			intro2: "кодов лотереи, и когда лотерея превышает 100, лотерея разыгрывается.",
 			wait: "В ожидании розыгрыша",
 			count: "номер лотереи",
 			join: "Я хочу лото",
@@ -898,7 +914,7 @@ B.Период Шэншигуанцянь (12 сезонов, каждый се�
 			myCode:"мой лотерейный код",
 			myBonus:"моя премия",
 			rule: "\
-Для каждых 100 SDF используется лотерейный код, и каждый узел может приобрести N лотерейных кодов, и когда полный 1000 лотерейных кодов, то в этом выпуске начинается награда.\n\
+\n\
 Правила большой лотереи:\n\
 A.) 30% призового фонда открывается:\n\
 Первый приз: 1 человек, что составляет 1/3;\n\
@@ -908,7 +924,7 @@ B.) 30% призового фонда, узел рекомендации воз�
 Прямой толчок узел: награда 10%;\n\
 Второй узел: награда 10%;\n\
 Третий узел: награда 10%.\n\
-Примечание: если узел прямого подталкивания участвовал, и этот узел не участвовал, то вознаграждение не может быть получено.\n\
+Примечание: если узел прямого подталкивания участвовал, и этот узел не участвовал, то вознаграждение не может 10ыть получено.\n\
 C.) 30% призового фонда, переходите в следующий раунд;\n\
 D.) 10% призового фонда, непосредственно уничтоженного;"
 		},
@@ -929,7 +945,7 @@ D.) 10% призового фонда, непосредственно уничт
 			ac_title:"успех",
 			id:"ID",
 			season_rule: "\
-Токен (SDF) находится на этапе обнародования сезона, и проводится ТОП-рейтинг светлого сезона. Каждый раз, когда завершается 10 миллионов продаж, проводится ТОП-рейтинг светлого сезона, и проводится 12 светлых сезонов. * 10% дохода от продаж токенов SDS за легкий сезон будет использоваться для ранжирования наград, расчеты с использованием ETH \n\
+Токен (SDFT) находится на этапе обнародования сезона, и проводится ТОП-рейтинг светлого сезона. Каждый раз, когда завершается 6 миллионов продаж, проводится ТОП-рейтинг светлого сезона, и проводится 12 светлых сезонов. * 10% дохода от продаж токенов SDS за легкий сезон будет использоваться для ранжирования наград, расчеты с использованием ETH \n\
 * Присуждается в топ 60. (Количество приобретенных вами токенов рассчитано на 100% + количество токенов прямой покупки рассчитано на 50%) \n\
 Пропорция  рейтинга \n\
 No.1 18% \n\
@@ -992,10 +1008,12 @@ No.51-60 0.5% 5.0% ",
 			my_team: "Моя галактика",
 			team_node: "Галактический узел",
 			large_area: "Региональное достижение",
+			second_area: "второй округ",
 			small_area: "Общие результаты в сообществах",
 			statistics: "Статистика данных",
 			ticket_sales: "Всего продаж токенов",
 			burn_down: "Общее количество ожогов токена",
+			next_season:"от следующего сезона",
 			v4_node: "Количество узлов V4",
 			today_game: "игра дня",
 			total_input: "общий вклад",
@@ -1014,11 +1032,11 @@ No.51-60 0.5% 5.0% ",
 			tip: "Suggerimenti",
 			send_error: "Ingresso minimo 1 ETH",
 			noData:"nessun dato",
-			lotteryError:"Inserisci solo numeri interi positivi tra 1 e 10",
+			lotteryError:"Il numero massimo di codici da modificare in ogni periodo è:",
 			copySuccess:"Successiva replicazione",
 			balance:"Saldo",
 			balanceError:"Insufficiente saldo",	
-			sdfBalanceError:"SDF Insufficiente saldo",
+			sdfBalanceError:"SDFT Insufficiente saldo",
 			noInvest:"Non investiti o senza attività",
 			detail:"Dettagli",
 			viewDetail:"Visualizza Dati dettagliati"
@@ -1056,10 +1074,10 @@ No.51-60 0.5% 5.0% ",
             myAddress:"Il mio indirizzo",
             myID:"Mio ID",
 			rule_intro:"\
-1.) Ha bisogno di un token ray SDF (Future star) per unirsi, l'importo per il token ray è pari al 10% dell'importo del gioco. Token Ray distrutto una volta partecipato.\n\
+1.) Ha bisogno di un token ray SDFT (Future star) per unirsi, l'importo per il token ray è pari al 10% dell'importo del gioco. Token Ray distrutto una volta partecipato.\n\
 2.) ETH ha partecipato al gioco riceverà una tripla in cambio. In base all'importo a cui hai partecipato ai cambiamenti del gioco e del mercato, il blocco verrà regolato come dividendo statico giornaliero e la percentuale di dividendo è dello 0,3% ～ 1,8% / giorno.\n\
 3.) Il premio dinamico include: premio azionario, premio galassia, premio rango galassia, premio ponderazione V4, premio distribuzione token, premio rango leggero, premio lotto raccomandato, premio nodo, tutti i tipi di premio ti aspettano.\n\
-4.) Vendita di token: distribuzione di raggi. Token (Future star SDF) adotta un contratto intelligente per distribuire, anche se distribuzione dei raggi + sistema distrutto + confronto degli insiemi + principio di deflazione + ambiente di diversità, che continuano ad attrarre le persone, creando consenso e aumentando il valore.\n\
+4.) Vendita di token: distribuzione di raggi. Token (Future star SDFT) adotta un contratto intelligente per distribuire, anche se distribuzione dei raggi + sistema distrutto + confronto degli insiemi + principio di deflazione + ambiente di diversità, che continuano ad attrarre le persone, creando consenso e aumentando il valore.\n\
 A. Periodo del raggio della creazione (Ci sono sei fasi con un massimo di dieci giorni in ogni fase e un limite di sei milioni di pezzi) \n\
 Il primo stadio, 1: 10000 \n\
 Il secondo stadio, 1: 9000 \n\
@@ -1067,14 +1085,16 @@ Il terzo stadio, 1: 8000 \n\
 Il quarto stadio, 1: 7000 \n\
 Il quinto stadio, 1: 6000 \n\
 Il sesto stadio, 1: 5000 \n\
-B. Periodo di gloria (Vendiamo dieci milioni di unità per stagione in 12 stagioni) \n\
-Aumento del prezzo dell'1% per 200.000 venduti \n\
+B. Periodo di gloria (Diviso in Dodici stagioni di luce, ogni stagione di luce + distruzione = 10 milioni) \n\
+Aumento del prezzo dell'1% per 100.000 venduti \n\
 Aumento del prezzo dell'1% per 100.000 venduti \n\
 Il primo aumento di prezzo si basava sul prezzo di coppia ETH del sesto stadio del livello del raggio di creazione. Dopo la distribuzione di ogni 10 milioni di unità, l'aumento dell'indice dei prezzi di base è stato modificato in base ai prezzi dell'ultima fase."
 		},
 		lottery: {
 			title: "Grande lotto",
-			intro: "Ogni 100 cambi SDF 1 codice lotto, per nodo è possibile acquistare il codice N lotto. Raccogli 1000 codici lotto per annunciare la lotteria.",
+			per:"Ogni",
+			intro: " SDFT 1 codice lotto, per nodo è possibile acquistare il codice ",
+			intro2: " lotto. Raccogli 100 codici lotto per annunciare la lotteria.",
 			wait: "In attesa del sorteggio",
 			count: "Codice lotto raccolto",
 			join: "Vai lotto",
@@ -1098,7 +1118,7 @@ Il primo aumento di prezzo si basava sul prezzo di coppia ETH del sesto stadio d
 			myCode:"Il mio codice della lotteria",
 			myBonus:"Il mio premio alla lotteria",
 			rule: "\
-Ogni 100 cambi SDF 1 codice lotto, per nodo è possibile acquistare il codice N lotto. Raccogli 1000 codici lotto per ottenere il risultato della lotteria \n\
+\n\
 A.) 30% del montepremi da sorteggiare \n\
 Primo premio: 1, prendi 1/3 \n\
 Secondo premio: 1, prendi 1/3 \n\
@@ -1128,7 +1148,7 @@ C.) 30% del montepremi, tira al prossimo turno \n\
 			ac_title:"realizzazione",
 			id:"ID",
 			season_rule: "\
-Il rango di luce sarà condotto durante il periodo di gloria dei token (SDF). Per 10 milioni venduti, si terrà un grado leggero, 12 volte in totale. Il 10% delle entrate di vendita del token SDF ogni volta sarà concesso come premio di rango da ETH \n\
+Il rango di luce sarà condotto durante il periodo di gloria dei token (SDFT). Per 6 milioni venduti, si terrà un grado leggero, 12 volte in totale. Il 10% delle entrate di vendita del token SDFT ogni volta sarà concesso come premio di rango da ETH \n\
 * Premi per i primi 60 (i token valgono come: 100% per gli auto-acquistati + 50% degli acquisti direttamente consigliati) \n\
 Proporzione del rango \n\
 No.1 18% 18% \n\
@@ -1191,11 +1211,13 @@ Quinto posto: 10%"
 			my_team: "La mia galassia",
 			team_node: "Galaxy Node",
 			large_area: "Performance della regione",
+			second_area: "Seconda regione",
 			small_area: "Prestazioni totali dell'area",
 			statistics: "Statistiche dei dati",
 			ticket_sales: "Token totale venduto",
 			burn_down: "Token totale distrutto",
 			v4_node: "Quantità nodo V4",
+			next_season:"La prossima stagione",
 			today_game: "Gioco nello stesso giorno",
 			total_input: "Gioco di input totale",
 			total_settled: "Utili regolati totali"

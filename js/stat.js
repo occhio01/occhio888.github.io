@@ -132,9 +132,10 @@ var app = new Vue({
 				_this.rankData.season.rank = data[""+_this.playerID][5];
 				_this.rankData.season.term = data[""+_this.playerID][15];
 							
-				_this.otherData.group.nodes=data[""+_this.playerID][6]
-				_this.otherData.group.largeArea=data[""+_this.playerID][7]
-				_this.otherData.group.smallArea=data[""+_this.playerID][8]
+				_this.otherData.group.nodes=data[""+_this.playerID][6];
+				_this.otherData.group.largeArea=data[""+_this.playerID][7];
+				_this.otherData.group.secondArea=data[""+_this.playerID][16];
+				_this.otherData.group.smallArea=data[""+_this.playerID][8];
 				
 				_this.income.list.dynamic.share = data[""+_this.playerID][9];
 				_this.income.list.dynamic.group = data[""+_this.playerID][10];

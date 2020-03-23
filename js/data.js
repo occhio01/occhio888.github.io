@@ -117,7 +117,8 @@ var data = {
 				eth: 0,
 				sdf: 0
 			},
-			limit: 0
+			limit: 0,
+			v4Bonus:0,
 		}
 	},
 	otherData: {
@@ -152,5 +153,5 @@ var data = {
     investTime:0,
     account: null,
     lotteryEnd:false,
-	timeId:{"scoundDown":null,"show":null}
+	timeId:{"scoundDown":null,"show":null},
 }

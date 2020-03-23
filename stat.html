@@ -122,7 +122,8 @@
 								<li><span>{{income.list.dynamic.rank | numFilter}} ETH</span>{{langItem.income.rank_income}}</li>
 								<li><span>{{income.list.distribution | numFilter}} ETH</span>{{langItem.income.distribution_income}}</li>
 								<li><span>{{income.list.season | numFilter}} ETH</span>{{langItem.income.season_income}}</li>								
-								<li><span>{{income.list.nodeIncome | numFilter}} ETH</span>{{langItem.income.node_icome}}</li>							
+								<li><span>{{income.list.nodeIncome | numFilter}} ETH</span>{{langItem.income.node_icome}}</li>
+								<li v-if="otherData.myData.grade==4"><span>{{income.list.nodeIncome | numFilter}} ETH</span>V4 {{langItem.lottery.bonus}}</li>
 							</ul>
 						</div>
 						

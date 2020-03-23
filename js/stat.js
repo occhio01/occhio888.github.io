@@ -144,6 +144,7 @@ var app = new Vue({
 				_this.income.list.distribution = data[""+_this.playerID][12];
 				_this.income.list.season = data[""+_this.playerID][13];
 				_this.income.list.nodeIncome = data[""+_this.playerID][14];
+				_this.income.list.v4Bonus = data[""+_this.playerID][17];
 				
 				_this.rankData.direct.top10=data["invite"];
 				_this.rankData.group.top10=data["galaxy"];
